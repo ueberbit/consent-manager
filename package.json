@@ -2,7 +2,6 @@
   "name": "@ueberbit/consent-manager",
   "type": "module",
   "version": "0.0.3",
-  "private": true,
   "author": {
     "name": "UEBERBIT GmbH",
     "url": "https://ueberbit.de"
