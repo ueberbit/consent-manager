@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <!-- Google Tag Manager -->
+    <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-P73R3623');</script> -->
+    <!-- End Google Tag Manager -->
+    <script type="module" src="/src/main.js" blocking="render"></script>
+    <style>
+      .grid{
+        display: grid;
+      }
+      </style>
+  </head>
+  <body>
+    <button id="button">Show with EventListener</button>
+    <button data-consent-show id="button">Show Magic Attr</button>
+    <div>
+      <template shadowrootmode="open">
+        <button data-consent-show id="button">Show Magic Attr from shadow dom</button>
+      </template>
+    </div>
+    <ce-consent style="aspect-ratio: 16/9; position: relative; display: block;">
+      <template #optin-marketing>
+        <iframe style="width: 100%; height: 100%; position: absolute; top: 0px; left: 0px;" frameborder="0" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Nuxt Nation 2023: Daniel Roe - A New Nuxt - Release of Nuxt v3.8" width="640" height="360" src="https://www.youtube-nocookie.com/embed/d_IFKP1Ofq0?autoplay=0&amp;playsinline=1&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fscripts.nuxt.com&amp;widgetid=1&amp;forigin=https%3A%2F%2Fscripts.nuxt.com%2Fscripts%2Fcontent%2Fyoutube-player&amp;aoriginsup=1&amp;gporigin=https%3A%2F%2Fscripts.nuxt.com%2F&amp;vf=6" id="widget2"></iframe>
+      </template>
+      <div style="display: grid; place-items: center; height: 100%; border: 1px dotted white; background-image: url(&quot;https://i.ytimg.com/vi/d_IFKP1Ofq0/sddefault.jpg&quot;);background-size: 100%; background-position: center; cursor: pointer;">
+        <button style="all: unset;-webkit-appearance: button; width: 68px; height: 48px">
+          <svg style="pointer-events: none;" height="100%" version="1.1" viewBox="0 0 68 48" width="100%"><path class="ytp-large-play-button-bg" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f03"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+        </button>
+      </div>
+    </ce-consent>
+
+    <div>
+      <div class="consent-optout-marketing">Placeholder</div>
+      <div class="consent-optin-marketing">Marketing Content</div>
+    </div>
+
+    <div style="aspect-ratio: 16/9; position: relative; display: block;">
+      <iframe style="width: 100%; height: 100%; position: absolute; top: 0px; left: 0px;" frameborder="0" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Nuxt Nation 2023: Daniel Roe - A New Nuxt - Release of Nuxt v3.8" width="640" height="360" data-consent="marketing" data-consent-src="https://www.youtube-nocookie.com/embed/d_IFKP1Ofq0?autoplay=0&amp;playsinline=1&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fscripts.nuxt.com&amp;widgetid=1&amp;forigin=https%3A%2F%2Fscripts.nuxt.com%2Fscripts%2Fcontent%2Fyoutube-player&amp;aoriginsup=1&amp;gporigin=https%3A%2F%2Fscripts.nuxt.com%2F&amp;vf=6" id="widget2"></iframe>
+      <div class="consent-optout-marketing grid" style="width: 100%; height: 100%; position: absolute; top: 0px; left: 0px; border: 1px solid white; place-items: center;">
+        marketing
+      </div>
+    </div>
+
+    <!-- <ce-consent-yt style="aspect-ratio: 16/9; display: block;"></ce-consent-yt> -->
+
+    <!-- <h2>use global consent</h2>
+    <ce-consent consent="marketing" style="aspect-ratio: 16/9; position: relative; display: block;">
+      <template #optin-marketing>
+        <iframe style="width: 100%; height: 100%; position: absolute; top: 0px; left: 0px;" frameborder="0" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Nuxt Nation 2023: Daniel Roe - A New Nuxt - Release of Nuxt v3.8" width="640" height="360" src="https://www.youtube-nocookie.com/embed/d_IFKP1Ofq0?autoplay=0&amp;playsinline=1&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fscripts.nuxt.com&amp;widgetid=1&amp;forigin=https%3A%2F%2Fscripts.nuxt.com%2Fscripts%2Fcontent%2Fyoutube-player&amp;aoriginsup=1&amp;gporigin=https%3A%2F%2Fscripts.nuxt.com%2F&amp;vf=6" id="widget2"></iframe>
+      </template>
+      <div style="display: grid; place-items: center; height: 100%; border: 1px dotted white; background-image: url(&quot;https://i.ytimg.com/vi/d_IFKP1Ofq0/sddefault.jpg&quot;);background-size: 100%; background-position: center; cursor: pointer;">
+        <button style="all: unset;-webkit-appearance: button; width: 68px; height: 48px">
+          <svg style="pointer-events: none;" height="100%" version="1.1" viewBox="0 0 68 48" width="100%"><path class="ytp-large-play-button-bg" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f03"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+        </button>
+      </div>
+    </ce-consent> -->
+<!-- <hr>
+    <iframe style="width: 100%; height: 100%; position: absolute; top: 0px; left: 0px;" frameborder="0" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Nuxt Nation 2023: Daniel Roe - A New Nuxt - Release of Nuxt v3.8" width="640" height="360" src="https://www.youtube-nocookie.com/embed/d_IFKP1Ofq0?autoplay=0&amp;playsinline=1&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fscripts.nuxt.com&amp;widgetid=1&amp;forigin=https%3A%2F%2Fscripts.nuxt.com%2Fscripts%2Fcontent%2Fyoutube-player&amp;aoriginsup=1&amp;gporigin=https%3A%2F%2Fscripts.nuxt.com%2F&amp;vf=6" id="widget2"></iframe> -->
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="%VITE_CBID%" type="text/javascript"></script>
+    <!-- <script id="CookieDeclaration" src="https://consent.cookiebot.com/7e23ffa6-8be1-4b96-8eaf-e4c1c3ec6641/cd.js" type="text/javascript" async></script> -->
+  </body>
+</html>

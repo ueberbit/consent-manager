@@ -1,0 +1,15 @@
+{
+  "name": "playground",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite"
+  },
+  "dependencies": {
+    "@ueberbit/consent-manager": "workspace:*"
+  },
+  "devDependencies": {
+    "vite": "^6.2.0"
+  }
+}

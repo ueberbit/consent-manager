@@ -1,0 +1,21 @@
+{
+  "name": "@ueberbit/consent-manager",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    ".": "./src/index.js",
+    "./providers/*": "./src/providers/*.js"
+  },
+  "types": "./src/index.d.ts",
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "playground": "pnpm --filter playground dev"
+  },
+  "devDependencies": {
+    "@types/cookiebot-sdk": "^2.43.5",
+    "typescript": "^5.8.2"
+  }
+}
