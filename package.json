@@ -1,8 +1,20 @@
 {
   "name": "@ueberbit/consent-manager",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
+  "author": {
+    "name": "UEBERBIT GmbH",
+    "url": "https://ueberbit.de"
+  },
+  "contributors": [
+    {
+      "name": "Willi Woldt",
+      "email": "willi.woldt@ueberbit.de"
+    }
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/ueberbit/consent-manager",
   "exports": {
     ".": "./src/index.js",
     "./providers/*": "./src/providers/*.js"
@@ -12,7 +24,8 @@
     "src"
   ],
   "scripts": {
-    "playground": "pnpm --filter playground dev"
+    "playground": "pnpm --filter playground dev",
+    "release": "nlx bumpp package.json --commit --push --tag"
   },
   "devDependencies": {
     "@types/cookiebot-sdk": "^2.43.5",
