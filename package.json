@@ -26,7 +26,8 @@
     "./providers/*": {
       "types": "./types/providers/*.d.ts",
       "import": "./src/providers/*.js"
-    }
+    },
+    "./src/*": "./src/*.js"
   },
   "types": "./types/index.d.ts",
   "files": [
