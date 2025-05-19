@@ -1,3 +1,5 @@
+/// <reference types="@ueberbit/consent-manager" />
+
 /* eslint-disable no-console */
 /* global ConsentManager */
 import '@ueberbit/consent-manager'
