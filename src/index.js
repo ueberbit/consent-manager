@@ -1,7 +1,7 @@
-import { ConsentManager } from './ConsentManager'
-import { CookiebotProvider } from './providers/CookieBot'
-import { EtrackerProvider } from './providers/ETracker'
-import './Consent.ce'
+import { ConsentManager } from './ConsentManager.js'
+import { CookiebotProvider } from './providers/CookieBot.js'
+import { EtrackerProvider } from './providers/ETracker.js'
+import './Consent.ce.js'
 
 function detectConsentProvider() {
   if ('Cookiebot' in globalThis) {

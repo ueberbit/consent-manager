@@ -1,5 +1,5 @@
 /* global Cookiebot */
-import { ConsentManager, ConsentProvider } from '../ConsentManager'
+import { ConsentManager, ConsentProvider } from '../ConsentManager.js'
 
 export class CookiebotProvider extends ConsentProvider {
   setup() {

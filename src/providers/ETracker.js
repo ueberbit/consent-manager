@@ -1,4 +1,4 @@
-import { ConsentManager, ConsentProvider } from '../ConsentManager'
+import { ConsentManager, ConsentProvider } from '../ConsentManager.js'
 
 export class EtrackerProvider extends ConsentProvider {
   setup() {
