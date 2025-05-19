@@ -1,5 +1,8 @@
 /// <reference types="@types/cookiebot-sdk" />
 
+export type { CEConsent } from './Consent.ce'
+export type { ConsentManager } from './ConsentManager'
+
 export type Consent = ['marketing', 'statistics', 'preferences', 'necessary']
 export type ConsentOptions = Consent[number]
 export type AllConsentOptions = Consent[number] | 'accepted' | 'declined'
@@ -12,7 +15,7 @@ export type AllConsentOptionsMap = Expand<{
 
 declare global {
   interface Window {
-    ConsentManager: ConsentManager
+    ConsentManager: typeof ConsentManager
   }
 
   interface WindowEventHandlersEventMap {
@@ -29,5 +32,9 @@ declare global {
     'ConsentManager:change:preferences': CustomEvent<boolean>
     'ConsentManager:change:necessary': CustomEvent<boolean>
     // [`ConsentManager:change:${AllConsentOptions}`]: CustomEvent<boolean> why not working?
+  }
+
+  interface HTMLElementTagNameMap {
+    'ce-consent': CEConsent
   }
 }

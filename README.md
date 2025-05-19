@@ -21,7 +21,7 @@ window.addEventListener('ConsentManager:onLoad', ({ detail }) => {
 
 ### manual
 ```javascript
-import { ConsentManager } from '@ueberbit/consent-manager'
+import { ConsentManager } from '@ueberbit/consent-manager/ConsentManager'
 import { CookiebotProvider } from '@ueberbit/consent-manager/providers/CookieBot'
 
 globalThis.ConsentManager = new ConsentManager(new CookiebotProvider())

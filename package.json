@@ -15,15 +15,27 @@
   "license": "MIT",
   "homepage": "https://github.com/ueberbit/consent-manager",
   "exports": {
-    ".": "./src/index.js",
-    "./providers/*": "./src/providers/*.js"
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": "./src/index.js"
+    },
+    "./ConsentManager": {
+      "types": "./types/ConsentManager.d.ts",
+      "import": "./src/ConsentManager.js"
+    },
+    "./providers/*": {
+      "types": "./types/providers/*.d.ts",
+      "import": "./src/providers/*.js"
+    }
   },
-  "types": "./src/index.d.ts",
+  "types": "./types/index.d.ts",
   "files": [
-    "src"
+    "src",
+    "types"
   ],
   "scripts": {
     "playground": "pnpm --filter playground dev",
+    "types": "tsc",
     "release": "nlx bumpp package.json --commit --push --tag"
   },
   "devDependencies": {
