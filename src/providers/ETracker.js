@@ -2,7 +2,6 @@ import { ConsentManager, ConsentProvider } from '../ConsentManager.js'
 
 export class EtrackerProvider extends ConsentProvider {
   setup() {
-    super.setup()
     ConsentManager.consent.declined = globalThis.et_getCookieValue('et_allow_cookies') === '0'
     ConsentManager.consent.accepted = globalThis.et_getCookieValue('et_allow_cookies') === '1'
 
@@ -30,9 +29,21 @@ export class EtrackerProvider extends ConsentProvider {
   withdraw() { globalThis.et_withdrawCookieConsent() }
 
   onChange() {
-    const newCategories = globalThis.et_getCookieValue('et_oi_categories').replace('performance', 'preferences')
-    ConsentManager.categories.forEach((category) => {
-      ConsentManager.consent[category] = newCategories.includes(category)
-    })
+    // @ts-ignore
+    if (globalThis.et_config && globalThis.et_config.consentVersion === 'v2') {
+      Object.entries(globalThis.et_getCookieValueJSON('et_oi_services'))
+        .filter(([key]) => key.match(/:$/))
+        .forEach(([_key, value]) => {
+          const key = _key.replace(/:$/, '')
+          ConsentManager.consent[key] = value
+        })
+    }
+    else {
+      /** @type {string} */
+      const newCategories = globalThis.et_getCookieValue('et_oi_categories').replace('performance', 'preferences')
+      ConsentManager.categories.forEach((category) => {
+        ConsentManager.consent[category] = newCategories.includes(category)
+      })
+    }
   }
 }

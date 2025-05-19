@@ -17,7 +17,7 @@ export class ConsentManager {
     this.provider = provider
 
     this.setup()
-    this.attachStyles()
+    // this.attachStyles()
   }
 
   static categories = /** @type {const} */ (['marketing', 'statistics', 'preferences', 'necessary'])
@@ -59,10 +59,10 @@ export class ConsentManager {
 
   static magicClasses(type, status) {
     /** @type {NodeListOf<HTMLElement>} el */ (document.querySelectorAll(`.consent-optin-${type}, .consent-optin`)).forEach((el) => {
-      status ? el.style.display = 'revert-layer' : el.style.display = 'none'
+      status ? el.style.display = '' : el.style.display = 'none'
     });
     /** @type {NodeListOf<HTMLElement>} el */ (document.querySelectorAll(`.consent-optout-${type}, .consent-optout`)).forEach((el) => {
-      status ? el.style.display = 'none' : el.style.display = 'revert-layer'
+      status ? el.style.display = 'none' : el.style.display = ''
     })
   }
 
@@ -71,7 +71,7 @@ export class ConsentManager {
       if (el instanceof HTMLIFrameElement) {
         if (status && el.hasAttribute('data-consent-src')) {
           el.setAttribute('src', el.getAttribute('data-consent-src') || '')
-          el.style.display = 'revert-layer'
+          el.style.display = ''
         }
         else {
           el.setAttribute('data-consent-src', el.getAttribute('src') || '')
@@ -90,17 +90,22 @@ export class ConsentManager {
     })
   }
 
-  attachStyles() {
-    const sheet = new CSSStyleSheet()
-    sheet.replaceSync(`:where([class*=consent-optin]) { display: none; }`)
-    document.adoptedStyleSheets = [...document.adoptedStyleSheets, sheet]
-  }
+  // attachStyles() {
+  //   const sheet = new CSSStyleSheet()
+  //   sheet.replaceSync(`:where([class*=consent-optin]) { display: none; }`)
+  //   document.adoptedStyleSheets = [...document.adoptedStyleSheets, sheet]
+  // }
 
   setup() {
+    document.querySelectorAll('[class*=consent-optin]').forEach((el) => {
+      if (el instanceof HTMLElement) {
+        el.style.display = 'none'
+      }
+    })
     document.addEventListener('click', (e) => {
       const target = e.composedPath().at(0)
       if (target instanceof HTMLElement && target.hasAttribute('data-consent-show')) {
-        this.provider.show()
+        this.show()
       }
     }, { passive: true })
     this.provider.setup()

@@ -5,10 +5,10 @@
 import '@ueberbit/consent-manager'
 import './style.css'
 
-const button = document.querySelector('#button')
+// const button = document.querySelector('#button')
 
 /** Programatically renew consent */
-button.addEventListener('click', () => ConsentManager.renew())
+// button.addEventListener('click', () => ConsentManager.renew())
 
 window.addEventListener('ConsentManager:onLoad', ({ detail }) => {
   console.log('ConsentManger:onLoad', detail)

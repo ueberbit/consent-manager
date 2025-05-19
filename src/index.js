@@ -13,4 +13,17 @@ function detectConsentProvider() {
   throw new Error('No consent provider found')
 }
 
-globalThis.ConsentManager = detectConsentProvider()
+let attempts = 0
+const interval = setInterval(() => {
+  try {
+    globalThis.ConsentManager = detectConsentProvider()
+    clearInterval(interval)
+  }
+  catch (e) {
+    attempts++
+    if (attempts > 20) {
+      clearInterval(interval)
+      console.error(e)
+    }
+  }
+}, 50)
