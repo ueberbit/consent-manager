@@ -5,7 +5,7 @@ This tool is a thin wrapper arund consent tools. It offers a unified api to inte
 ## Installation
 
 ```bash
-pnpm i @ueberbit/consent-tool
+pnpm i @ueberbit/consent-manager
 ```
 
 ## Usage
