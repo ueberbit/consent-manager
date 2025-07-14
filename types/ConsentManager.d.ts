@@ -10,7 +10,7 @@ export class ConsentProvider {
 }
 export class ConsentManager {
     static flushScheduled: boolean;
-    static categories: readonly ["marketing", "statistics", "preferences", "necessary"];
+    static categories: readonly ["marketing", "statistics", "preferences", "necessary", "socials"];
     static consent: {
         marketing: boolean;
         statistics: boolean;

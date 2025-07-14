@@ -16,6 +16,10 @@ export type AllConsentOptionsMap = Expand<{
 declare global {
   interface Window {
     ConsentManager: typeof ConsentManager
+    CCM: {
+      openWidget: () => void
+      closeWidget: () => void
+    }
   }
 
   interface WindowEventHandlersEventMap {

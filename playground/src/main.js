@@ -21,3 +21,11 @@ window.addEventListener('ConsentManager:change:marketing', ({ detail }) => {
 window.addEventListener('ConsentManager:change', ({ detail }) => {
   console.log('ConsentManger:change', detail)
 })
+
+window.addEventListener('ConsentManager:onAccept', () => {
+  console.log('ConsentManger:onAccept')
+})
+
+window.addEventListener('ConsentManager:onDecline', () => {
+  console.log('ConsentManger:onDecline')
+})

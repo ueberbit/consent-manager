@@ -20,13 +20,14 @@ export class ConsentManager {
     // this.attachStyles()
   }
 
-  static categories = /** @type {const} */ (['marketing', 'statistics', 'preferences', 'necessary'])
+  static categories = /** @type {const} */ (['marketing', 'statistics', 'preferences', 'necessary', 'socials'])
 
   static consent = new Proxy({
     marketing: false,
     statistics: false,
     preferences: false,
     necessary: true,
+    socials: false,
     accepted: false,
     declined: false,
   }, {
