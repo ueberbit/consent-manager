@@ -10,6 +10,7 @@ export class EtrackerProvider extends ConsentProvider {
     const et_setCookieValueOriginal = globalThis.et_setCookieValue
     globalThis.et_setCookieValue = (...args) => {
       et_setCookieValueOriginal(...args)
+      console.log('et_setCookieValue', args)
       if (args[0] === 'et_oi_categories') {
         this.onChange()
       }
@@ -31,12 +32,16 @@ export class EtrackerProvider extends ConsentProvider {
   onChange() {
     // @ts-ignore
     if (globalThis.et_config && globalThis.et_config.consentVersion === 'v2') {
+      console.log('ETracker v2 detected', globalThis.et_getCookieValueJSON('et_oi_services'))
+      /** @type {Map<string, boolean>} */
+      const categories = new Map()
       Object.entries(globalThis.et_getCookieValueJSON('et_oi_services'))
-        .filter(([key]) => key.match(/:$/))
+        .filter(([key]) => key.match(/^(statistics|marketing|preferences|necessary|socials):/))
         .forEach(([_key, value]) => {
-          const key = _key.replace(/:$/, '')
-          ConsentManager.consent[key] = value
+          const key = _key.split(':')[0]
+          categories.set(key, categories.has(key) ? !!categories.get(key) && value : value)
         })
+      categories.forEach((value, key) => { ConsentManager.consent[key] = value })
     }
     else {
       /** @type {string} */
