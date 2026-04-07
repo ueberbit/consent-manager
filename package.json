@@ -41,6 +41,6 @@
   },
   "devDependencies": {
     "@types/cookiebot-sdk": "^2.43.5",
-    "typescript": "^5.8.2"
+    "typescript": "^6.0.2"
   }
 }
